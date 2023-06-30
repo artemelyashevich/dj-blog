@@ -1,0 +1,19 @@
+.post {
+    padding: 20px;
+    background-color: $bg-post;
+    display: flex;
+    column-gap: 20px;
+
+    &__left {
+        img {
+            width: 300px;
+        }
+    }
+
+   &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+   }
+    
+}

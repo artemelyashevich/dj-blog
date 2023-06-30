@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="posts">
+    {% for post in posts %}
+    <div class="posts-item">
+        {% if post.photo %}
+        <div>
+            <img class="posts-item__img" src="{{post.photo.url}}" alt="">
+        </div>
+        {% endif %}
+        <div>
+            <div class="posts-item__top">
+                <h3 class="posts-item__title">{{post.title}}</h3>
+                <p class="posts-item__data">
+                    {{post.time_create}}
+                </p>
+
+            </div>
+            <p class="posts-item__content">
+                {{post.content | linebreaks | truncatewords:20}}
+            </p>
+            <button class="posts-item__btn"><a href="{{ post.get_absolute_url }}">Читать статью</a></button>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

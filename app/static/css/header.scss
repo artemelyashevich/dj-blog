@@ -1,0 +1,25 @@
+.header {
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 98%;
+    display: flex;
+    background-color: $color;
+    font-size: 20px;
+    justify-content: space-around;
+    align-items: center;
+
+    &__center {
+        display: flex;
+        column-gap: 30px;
+        margin-right: 10px;
+
+        p{
+            cursor: pointer;
+
+            &:hover {
+                transition: all .3s ease-in-out;
+                color: grey;
+            }
+        }
+    }
+}

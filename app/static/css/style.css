@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@600&family=Montserrat:wght@400;600;700&display=swap");
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', sans-serif; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+p,
+li {
+  font-family: 'Geologica', sans-serif;
+  transition: all .3s ease-in-out; }
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+  background: #222; }
+
+.container {
+  margin-left: 1%;
+  width: 74.35%;
+  background: #333;
+  padding: 20px; }
+
+.header {
+  margin-top: 1%;
+  margin-left: 1%;
+  width: 98%;
+  display: flex;
+  background-color: #333;
+  font-size: 20px;
+  justify-content: space-around;
+  align-items: center; }
+  .header__center {
+    display: flex;
+    column-gap: 30px;
+    margin-right: 10px; }
+    .header__center p {
+      cursor: pointer; }
+      .header__center p:hover {
+        transition: all .3s ease-in-out;
+        color: grey; }
+
+.left_bar {
+  background-color: #333;
+  width: 20%;
+  margin-left: 1%; }
+  .left_bar__list {
+    padding: 20px; }
+    .left_bar__list-item {
+      cursor: pointer;
+      list-style: none;
+      font-size: 25px;
+      padding-bottom: 20px;
+      cursor: pointer; }
+      .left_bar__list-item:hover {
+        transition: all .3s ease-in-out;
+        color: grey; }
+
+.footer {
+  margin-left: 1%;
+  margin-bottom: 1%;
+  background-color: #333;
+  width: 98%;
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.posts {
+  margin-left: 10px;
+  margin-top: 10px; }
+  .posts-item {
+    display: flex;
+    column-gap: 20px;
+    padding: 10px;
+    background-color: #444;
+    border: 1px solid #999;
+    margin-top: 20px; }
+    .posts-item__img {
+      width: 200px;
+      height: 200px;
+      overflow: hidden; }
+    .posts-item__top {
+      display: flex;
+      justify-content: space-around; }
+    .posts-item__data {
+      color: #999; }
+    .posts-item__btn {
+      float: right;
+      margin-right: 20px;
+      padding: 10px 15px;
+      background-color: #226faa;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all .2s ease-in-out; }
+      .posts-item__btn:hover {
+        transition: all .2s ease-in-out;
+        background-color: #1b5988; }
+
+.post {
+  padding: 20px;
+  background-color: #444;
+  display: flex;
+  column-gap: 20px; }
+  .post__left img {
+    width: 300px; }
+  .post__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+
+/*# sourceMappingURL=style.css.map */

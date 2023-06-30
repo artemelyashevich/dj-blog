@@ -1,0 +1,24 @@
+.left_bar {
+    background-color: $color;
+    width: 20%;
+    margin-left: 1%;
+
+    &__list {
+
+        padding: 20px;
+
+        &-item {
+            cursor: pointer;
+            list-style: none;
+            font-size: 25px;
+            padding-bottom: 20px;
+
+            cursor: pointer;
+
+            &:hover {
+                transition: all .3s ease-in-out;
+                color: grey;
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@600&family=Montserrat:wght@400;600;700&display=swap');
+
+$bg-color: #222;
+$color: #333;
+$font-color: #fff;
+$bg-post: #444;
+$border-color: #999;
+$btn-color: #226faa;
+$btn-hcolor:rgb(27, 89, 136);
+
+h1,
+h2,
+h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: $font-color;
+}
+
+p,
+li {
+    font-family: 'Geologica', sans-serif;
+    transition: all .3s ease-in-out;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $font-color;
+    background: $bg-color;
+}
+
+.container {
+    margin-left: 1%;
+    width: 74.35%;
+    background: $color;
+    padding: 20px;
+}
+
+
+@import 'header';
+@import 'left-bar';
+@import 'footer';
+@import 'index';
+@import 'post';

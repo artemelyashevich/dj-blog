@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="post">
+    <div class="post__left">
+        <label style="display: flex; column-gap: 10px; color: grey; align-items: center;" for="">
+            Категория: <p>
+                {{post.category}}
+            </p>
+        </label>
+
+        <img src="{{post.photo.url}}" alt="">
+    </div>
+    <div class="post__left">
+        <div class="post__title">
+            <h3>
+                {{post.title}}
+            </h3>
+            <p>
+                {{post.time_create}}
+            </p>
+        </div>
+        <div class="post__content">
+            <p>
+                {{post.content}}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
