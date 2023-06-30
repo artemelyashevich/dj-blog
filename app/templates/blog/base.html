@@ -4,49 +4,54 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="{% sass_src 'css/style.scss' %}" rel="stylesheet" type="text/css" />
+    <meta
+            name="description"
+            content="Simple Notes app">
+    <link href="{% sass_src 'css/style.scss' %}" rel="stylesheet" type="text/css"/>
     <title>{{title}}</title>
 </head>
 
 <body>
-    <header class="header">
-        <div>
-            <h3>
+<header class="header">
+    <div>
+        <h3>
+            <a href="/">
                 NOTES
-            </h3>
-        </div>
-        <div class="header__center">
-            {% for nav in navs %}
-            <p>
-                <a href="{{nav.path}}">
-                     {{nav.title}}
-                </a>
-            </p>
-            {% endfor %}
-        </div>
-
-    </header>
-    <div style="display: flex; margin-top: 20px;">
-        <div class="left_bar">
-            <ul class="left_bar__list">
-                <li class="left_bar__list-item">Сначала новые</li>
-                <li class="left_bar__list-item">Сначала старые</li>
-                <li class="left_bar__list-item">Техника</li>
-                <li class="left_bar__list-item">Люди</li>
-            </ul>
-        </div>
-        <div class="container">
-            {% block content %}
-            {% endblock %}
-        </div>
+            </a>
+        </h3>
     </div>
-    <footer>
-        <div class="footer">
-            <p>
-                Copyright © 2023
-            </p>
-        </div>
-    </footer>
+    <div class="header__center">
+        {% for nav in navs %}
+        <p>
+            <a href="{{nav.path}}">
+                {{nav.title}}
+            </a>
+        </p>
+        {% endfor %}
+    </div>
+
+</header>
+<div style="display: flex; margin-top: 20px;">
+    <div class="left_bar">
+        <ul class="left_bar__list">
+            <li class="left_bar__list-item">Сначала новые</li>
+            <li class="left_bar__list-item">Сначала старые</li>
+            <li class="left_bar__list-item">Техника</li>
+            <li class="left_bar__list-item">Люди</li>
+        </ul>
+    </div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+<footer>
+    <div class="footer">
+        <p>
+            Copyright © 2023
+        </p>
+    </div>
+</footer>
 </body>
 
 </html>

@@ -1,5 +1,36 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<h1>Add post</h1>
+<div style="display: flex; justify-content: center; margin-bottom: 2%;">
+    <h2>Добавление статьи</h2>
+</div>
+<div class="add-post">
+    <form class="form" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{form.non_field_errors}}
+        </div>
+        {% for element in form %}
+        <div>
+            <div class="form__row">
+                <p>
+                    {{ element.label }}
+                </p>
+                <div>
+                    {{ element }}
+                </div>
+            </div>
+            <div class="form__errors">
+                <p>
+                     {{ element.errors }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+        <div style="display: flex; justify-content: center;">
+             <button class="form__btn" type="submit">Добавить</button>
+        </div>
+    </form>
+</div>
+
 {% endblock %}

@@ -12,6 +12,7 @@
         margin-top: 20px;
 
         &__img {
+            user-select: none;
             width: 200px;
             height: 200px;
             overflow: hidden;
@@ -42,6 +43,5 @@
                 background-color: $btn-hcolor;
             }
         }
-
     }
 }

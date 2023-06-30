@@ -9,25 +9,25 @@ class Post(models.Model):
         ordering = ['time_create']
 
     title = models.CharField(max_length=255,
-                             verbose_name="Заголовок")
+                             verbose_name="Заголовок", )
     content = models.TextField(blank=True,
-                               verbose_name="Текст")
+                               verbose_name="Текст", )
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/",
-                              verbose_name="Фото")
+                              verbose_name="Фото", )
     time_create = models.DateTimeField(auto_now_add=True,
-                                       verbose_name="Время создания")
+                                       verbose_name="Время создания", )
     time_update = models.DateTimeField(auto_now=True,
-                                       verbose_name="Время изменения")
+                                       verbose_name="Время изменения", )
     is_published = models.BooleanField(default=True,
-                                       verbose_name="Публикация")
+                                       verbose_name="Публикация", )
 
-    class Category(models.TextChoices):
-        MAN = "Люди", "MAN"
-        EL = "Электроника", "ELECTRONICS"
+    CHOICES = (
+        ('Человек', 'MAN'),
+        ('Техника', 'ELECTRONICS'),
+    )
 
     category = models.CharField(max_length=15,
-                                choices=Category.choices,
-                                default=Category.MAN)
+                                choices=CHOICES, )
 
     def get_absolute_url(self):
         return reverse('post', kwargs={'post_id': self.pk})

@@ -1,0 +1,66 @@
+.add-post {
+
+
+    .form{
+
+        &__errors {
+            font-size: 15px;
+            color: red;
+        }
+        p {
+            margin-right: 50px;
+            margin-bottom: 20px;
+        }
+
+        &__row {
+            display: flex;
+            align-items: baseline;
+            column-gap: 10px;
+        }
+
+        &__title {
+            background-color: $input-color;
+            width: 250%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            margin-left: -15px;
+        }
+
+        &__content {
+            outline: none;
+            margin-left: 26.5px;
+            resize: none;
+            background-color: $input-color;
+            width: 120%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            height: 200%;
+        }
+
+        &__btn {
+            padding: 10px 15px;
+            background-color: $btn-color;
+            color: $font-color;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                transition: all .2s ease-in-out;
+                background-color: $btn-hcolor;
+            }
+        }
+    }
+
+    #id_photo {
+        margin-left: 27px;
+    }
+
+    #id_category{
+        margin-left: -5px;
+    }
+}

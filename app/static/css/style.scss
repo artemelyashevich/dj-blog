@@ -5,6 +5,7 @@ $color: #333;
 $font-color: #fff;
 $bg-post: #444;
 $border-color: #999;
+$input-color: #d8d8d8;
 $btn-color: #226faa;
 $btn-hcolor:rgb(27, 89, 136);
 
@@ -17,6 +18,12 @@ h3 {
 a {
     text-decoration: none;
     color: $font-color;
+    cursor: pointer;
+
+    &:hover {
+        transition: all .3s ease-in-out;
+        color: grey;
+    }
 }
 
 p,
@@ -46,3 +53,4 @@ body {
 @import 'footer';
 @import 'index';
 @import 'post';
+@import 'add-post';

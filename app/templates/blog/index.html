@@ -1,5 +1,4 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
 <div class="posts">
     {% for post in posts %}
@@ -15,16 +14,15 @@
                 <p class="posts-item__data">
                     {{post.time_create}}
                 </p>
-
             </div>
             <p class="posts-item__content">
                 {{post.content | linebreaks | truncatewords:20}}
             </p>
-            <button class="posts-item__btn"><a href="{{ post.get_absolute_url }}">Читать статью</a></button>
+            <a href="{{ post.get_absolute_url }}">
+                <button class="posts-item__btn">Читать статью</button>
+            </a>
         </div>
-
     </div>
     {% endfor %}
-
 </div>
 {% endblock %}

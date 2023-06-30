@@ -5,12 +5,14 @@
 <div class="post">
     <div class="post__left">
         <label style="display: flex; column-gap: 10px; color: grey; align-items: center;" for="">
-            Категория: <p>
-                {{post.category}}
+            Категория:
+            <p>
+            {{post.category}}
             </p>
         </label>
-
+        {% if post.photo %}
         <img src="{{post.photo.url}}" alt="">
+        {% endif %}
     </div>
     <div class="post__left">
         <div class="post__title">
