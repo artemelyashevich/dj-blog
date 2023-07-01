@@ -25,9 +25,8 @@ body {
   background: #222; }
 
 .container {
-  position: relative;
   margin-left: 1%;
-  width: 94.7%;
+  width: 94.74%;
   background: #333;
   padding: 20px; }
 
@@ -139,55 +138,72 @@ body {
     align-items: center;
     justify-content: space-evenly; }
 
-.add-post .form__errors {
-  font-size: 15px;
-  color: red; }
+.add-post .form, .register .form, .login .form {
+  width: 72.2rem; }
+  .add-post .form__errors, .register .form__errors, .login .form__errors {
+    font-size: 15px;
+    color: red; }
+  .add-post .form p, .register .form p, .login .form p {
+    margin-right: 50px;
+    margin-bottom: 20px; }
+  .add-post .form__row, .register .form__row, .login .form__row {
+    display: flex;
+    align-items: baseline;
+    column-gap: 10px; }
+  .add-post .form__title, .register .form__title, .login .form__title {
+    background-color: #d8d8d8;
+    width: 250%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    margin-left: -15px; }
+  .add-post .form__content, .register .form__content, .login .form__content {
+    outline: none;
+    margin-left: 26.5px;
+    resize: none;
+    background-color: #d8d8d8;
+    width: 120%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    height: 200%; }
+  .add-post .form__btn, .register .form__btn, .login .form__btn {
+    padding: 10px 15px;
+    background-color: #226faa;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-in-out; }
+    .add-post .form__btn:hover, .register .form__btn:hover, .login .form__btn:hover {
+      transition: all .2s ease-in-out;
+      background-color: #1b5988; }
 
-.add-post .form p {
-  margin-right: 50px;
-  margin-bottom: 20px; }
-
-.add-post .form__row {
-  display: flex;
-  align-items: baseline;
-  column-gap: 10px; }
-
-.add-post .form__title {
-  background-color: #d8d8d8;
-  width: 250%;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  margin-left: -15px; }
-
-.add-post .form__content {
-  outline: none;
-  margin-left: 26.5px;
-  resize: none;
-  background-color: #d8d8d8;
-  width: 120%;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  height: 200%; }
-
-.add-post .form__btn {
-  padding: 10px 15px;
-  background-color: #226faa;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  transition: all .2s ease-in-out; }
-  .add-post .form__btn:hover {
-    transition: all .2s ease-in-out;
-    background-color: #1b5988; }
-
-.add-post #id_photo {
+.add-post #id_photo, .register #id_photo, .login #id_photo {
   margin-left: 27px; }
 
-.add-post #id_category {
+.add-post #id_category, .register #id_category, .login #id_category {
   margin-left: -5px; }
+
+.login form #id_username {
+  width: 500px;
+  margin-left: 50px; }
+
+.login form #id_password {
+  width: 500px;
+  margin-left: 39px; }
+
+.register .form {
+  width: 73.1rem; }
+  .register .form #id_username {
+    margin-left: 73px;
+    width: 500px; }
+  .register .form #id_password1 {
+    margin-left: 63px;
+    width: 500px; }
+  .register .form #id_password2 {
+    width: 500px;
+    margin-left: -27px; }
 
 /*# sourceMappingURL=style.css.map */

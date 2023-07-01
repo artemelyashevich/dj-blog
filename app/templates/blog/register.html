@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="register">
+    <h1>Регистрация</h1>
+    <form class="form" method="post">
+        {% csrf_token %}
+        {% for element in form %}
+        <div>
+            <div class="form__row">
+                <p>
+                    {{ element.label }}
+                </p>
+                <div>
+                    {{ element }}
+                </div>
+            </div>
+            <div class="form__errors">
+                <p>
+                     {{ element.errors }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+        <div style="display: flex; justify-content: center;">
+            <button class="form__btn" type="submit">Зарегистрироваться</button>
+       </div>
+    </form>
+</div>
+    
+{% endblock %}

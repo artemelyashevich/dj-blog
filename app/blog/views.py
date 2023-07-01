@@ -1,6 +1,11 @@
+from django.contrib.auth import logout, login
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
-from .forms import AddPostForm
+from .forms import AddPostForm, UserRegisterForm, UserLoginForm
 from .models import Post
 from .utils import DataMixin
 
@@ -57,3 +62,37 @@ class PostAdd(LoginRequiredMixin, DataMixin, CreateView):
         context = super().get_context_data(**kwargs)
         c = self.get_user_context(title='Добавление статьи')
         return dict(list(context.items()) + list(c.items()))
+
+
+class UserRegister(DataMixin, CreateView):
+    form_class = UserRegisterForm
+    template_name = 'blog/register.html'
+    success_url = reverse_lazy("login")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c = self.get_user_context(title='Регистрация')
+        return dict(list(context.items()) + list(c.items()))
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('home')
+
+
+class UserLogin(DataMixin, LoginView):
+    form_class = UserLoginForm
+    template_name = 'blog/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c = self.get_user_context(title='Вход')
+        return dict(list(context.items()) + list(c.items()))
+
+    def get_success_url(self):
+        return reverse_lazy('home')
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')

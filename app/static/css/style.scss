@@ -41,13 +41,11 @@ body {
 }
 
 .container {
-    position: relative;
+
     margin-left: 1%;
-    width: 94.7%;
+    width: 94.74%;
     background: $color;
     padding: 20px;
-
-
 }
 
 .paginate {
@@ -75,3 +73,5 @@ body {
 @import 'index';
 @import 'post';
 @import 'add-post';
+@import 'login';
+@import 'register';

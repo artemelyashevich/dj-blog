@@ -26,6 +26,24 @@
             </a>
         </p>
         {% endfor %}
+        {% if request.user.is_authenticated %}
+        <p>
+            <a href="{% url 'logout' %}">
+                Выйти
+            </a>
+        </p>
+        {% else %}
+        <p>
+            <a href="{% url 'login' %}">
+                Войти
+            </a>
+        </p>
+        <p>
+            <a href="{% url 'register' %}">
+                Зарегистрироваться
+            </a>
+        </p>
+        {% endif %}
     </div>
 
 </header>
@@ -73,7 +91,7 @@
                         </li>
                         {% endif %}
                         {% endfor %}
-                         {% if page_obj.has_next %}
+                        {% if page_obj.has_next %}
                         <li>
                             <a href="?page={{page_obj.next_page_number }}">&#62;</a>
                         </li>

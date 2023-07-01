@@ -1,7 +1,6 @@
 menu = [
     {'title': 'Главная', 'path': '/'},
     {'title': 'Добавить статью', 'path': '/add-post'},
-    {'title': 'Войти', 'path': '/login'},
 ]
 
 category_list = [
@@ -20,8 +19,6 @@ class DataMixin:
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:
             user_menu.pop(1)
-        else:
-            user_menu.pop(2)
 
         context['navs'] = user_menu
         context['cats'] = category_list
