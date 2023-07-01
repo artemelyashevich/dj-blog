@@ -1,9 +1,10 @@
 from django.urls import path
+from . import views
 
-from .views import index, post, add_post
 
 urlpatterns = [
-    path("", index, name="home"),
-    path("post/<int:post_id>", post, name="post"),
-    path("add-post/", add_post, name="add_post"),
+    path("", views.PostHome.as_view(), name="home"),
+    path("post/<int:post_id>", views.PostPage.as_view(), name="post"),
+    path("add-post/", views.PostAdd.as_view(), name="add_post"),
+    path("category/<str:cat>", views.PostCategory.as_view(), name="category")
 ]

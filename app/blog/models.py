@@ -8,6 +8,7 @@ class Post(models.Model):
         verbose_name_plural = 'Статьи'
         ordering = ['time_create']
 
+
     title = models.CharField(max_length=255,
                              verbose_name="Заголовок", )
     content = models.TextField(blank=True,
@@ -22,8 +23,9 @@ class Post(models.Model):
                                        verbose_name="Публикация", )
 
     CHOICES = (
-        ('Человек', 'MAN'),
-        ('Техника', 'ELECTRONICS'),
+        ('MAN', 'Человек'),
+        ('EL', 'Электроника'),
+        ('BOOK', 'Книга')
     )
 
     category = models.CharField(max_length=15,

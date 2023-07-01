@@ -64,6 +64,11 @@ body {
       .left_bar__list-item:hover {
         transition: all .3s ease-in-out;
         color: grey; }
+      .left_bar__list-item__selected {
+        list-style: none;
+        color: grey;
+        font-size: 25px;
+        padding-bottom: 20px; }
 
 .footer {
   margin-left: 1%;

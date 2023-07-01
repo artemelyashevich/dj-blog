@@ -34,10 +34,23 @@
 <div style="display: flex; margin-top: 20px;">
     <div class="left_bar">
         <ul class="left_bar__list">
-            <li class="left_bar__list-item">Сначала новые</li>
-            <li class="left_bar__list-item">Сначала старые</li>
-            <li class="left_bar__list-item">Техника</li>
-            <li class="left_bar__list-item">Люди</li>
+            {% if cat.path == cat_selected %}
+                <li class="left_bar__list-item__selected">Все</li>
+            {% else %}
+                <a href="/">
+                    <li class="left_bar__list-item">Все</li>
+                </a>
+            {% endif %}
+
+            {% for cat in cats %}
+                {% if cat.path == cat_selected %}
+                    <li class="left_bar__list-item__selected">{{cat.title}}</li>
+                {% else %}
+                    <a href="/category/{{cat.path}}">
+                        <li class="left_bar__list-item">{{cat.title}}</li>
+                    </a>
+                {% endif %}
+            {% endfor %}
         </ul>
     </div>
     <div class="container">

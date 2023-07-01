@@ -1,35 +1,77 @@
-from django.shortcuts import render, redirect
-
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
 from .forms import AddPostForm
 from .models import Post
 
 menu = [
-    {
-        'title': 'Главная', 'path': '/'}, {'title': 'Добавить статью', 'path': '/add-post'},
-    {'title': 'Войти', 'path': '/login'}]
+    {'title': 'Главная', 'path': '/'},
+    {'title': 'Добавить статью', 'path': '/add-post'},
+    {'title': 'Войти', 'path': '/login'},
+]
+
+category_list = [
+    {'title': 'Люди', 'path': 'man'},
+    {'title': 'Электроника', 'path': 'el'},
+    {'title': 'Книги', 'path': 'book'}
+]
 
 
-def index(request):
-    posts = Post.objects.all()
+class PostHome(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'posts'
 
-    return render(request, 'blog/index.html', {'navs': menu, 'posts': posts, 'title': 'home'})
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['navs'] = menu
+        context['title'] = 'Главная'
+        context['cats'] = category_list
+        return context
+
+    def get_queryset(self):
+        return Post.objects.filter(is_published=True)
 
 
-def post(request, post_id):
-    post = Post.objects.filter(id=post_id).first()
-    return render(request, 'blog/post.html', {"post": post, "navs": menu})
+class PostCategory(ListView):
+    model = Post
+    template_name = 'blog/index.html'
+    context_object_name = 'posts'
+    allow_empty = False
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = str('Категория ' + str(context['posts'][0].category))
+        context['navs'] = menu
+        context['cat_selected'] = self.kwargs['cat']
+        context['cats'] = category_list
+        return context
+
+    def get_queryset(self):
+        return Post.objects.filter(category=self.kwargs['cat'].upper(), is_published=True)
 
 
-def add_post(request):
-    if request.method == 'POST':
-        form = AddPostForm(request.POST, request.FILES)
-        if form.is_valid():
-            try:
-                form.save()
-                return redirect('home')
-            except Exception as e:
-                print(e)
-                form.add_error(None, 'Ошибка!!!')
-    else:
-        form = AddPostForm()
-    return render(request, 'blog/add-post.html', {'navs': menu, 'title': 'Добавить статью', 'form': form})
+class PostPage(DetailView):
+    model = Post
+    template_name = 'blog/post.html'
+    pk_url_kwarg = 'post_id'
+    context_object_name = 'post'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Пост'
+        context['navs'] = menu
+        context['cats'] = category_list
+        return context
+
+
+class PostAdd(CreateView):
+    form_class = AddPostForm
+    template_name = 'blog/add-post.html'
+    success_url = reverse_lazy('/')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Добавление статьи'
+        context['navs'] = menu
+        context['cats'] = category_list
+        return context
