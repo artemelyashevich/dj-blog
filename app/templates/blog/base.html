@@ -4,9 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta
-            name="description"
-            content="Simple Notes app">
+    <meta name="description" content="Simple Notes app">
     <link href="{% sass_src 'css/style.scss' %}" rel="stylesheet" type="text/css"/>
     <title>{{title}}</title>
 </head>
@@ -35,27 +33,56 @@
     <div class="left_bar">
         <ul class="left_bar__list">
             {% if cat.path == cat_selected %}
-                <li class="left_bar__list-item__selected">Все</li>
+            <li class="left_bar__list-item__selected">Все</li>
             {% else %}
-                <a href="/">
-                    <li class="left_bar__list-item">Все</li>
-                </a>
+            <a href="/">
+                <li class="left_bar__list-item">Все</li>
+            </a>
             {% endif %}
 
             {% for cat in cats %}
-                {% if cat.path == cat_selected %}
-                    <li class="left_bar__list-item__selected">{{cat.title}}</li>
-                {% else %}
-                    <a href="/category/{{cat.path}}">
-                        <li class="left_bar__list-item">{{cat.title}}</li>
-                    </a>
-                {% endif %}
+            {% if cat.path == cat_selected %}
+            <li class="left_bar__list-item__selected">{{cat.title}}</li>
+            {% else %}
+            <a href="/category/{{cat.path}}">
+                <li class="left_bar__list-item">{{cat.title}}</li>
+            </a>
+            {% endif %}
             {% endfor %}
         </ul>
     </div>
-    <div class="container">
-        {% block content %}
-        {% endblock %}
+    <div>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+            {% if page_obj.has_other_pages %}
+            <div style="display: flex; justify-content: center;">
+                <nav>
+                    <ul class="paginate">
+                        {% if page_obj.has_previous %}
+                        <li>
+                            <a href="?page={{page_obj.previous_page_number }}">&#60;</a>
+                        </li>
+                        {% endif %}
+                        {% for p in page_obj.paginator.page_range %}
+                        {% if page_obj.number == p %}
+                        <li class="paginate__selected">{{ p }}</li>
+                        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                        <li>
+                            <a href="?page={{ p }}">{{ p }}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                         {% if page_obj.has_next %}
+                        <li>
+                            <a href="?page={{page_obj.next_page_number }}">&#62;</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            {% endif %}
+        </div>
     </div>
 </div>
 <footer>

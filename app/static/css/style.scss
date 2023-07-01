@@ -7,7 +7,7 @@ $bg-post: #444;
 $border-color: #999;
 $input-color: #d8d8d8;
 $btn-color: #226faa;
-$btn-hcolor:rgb(27, 89, 136);
+$btn-hcolor: rgb(27, 89, 136);
 
 h1,
 h2,
@@ -41,10 +41,31 @@ body {
 }
 
 .container {
+    position: relative;
     margin-left: 1%;
-    width: 74.35%;
+    width: 94.7%;
     background: $color;
     padding: 20px;
+
+
+}
+
+.paginate {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    li {
+        font-size: 20px;
+        list-style: none;
+        margin: 10px;
+    }
+
+    &__selected {
+        color: grey;
+    }
 }
 
 
