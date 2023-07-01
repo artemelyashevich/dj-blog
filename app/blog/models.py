@@ -8,7 +8,6 @@ class Post(models.Model):
         verbose_name_plural = 'Статьи'
         ordering = ['time_create']
 
-
     title = models.CharField(max_length=255,
                              verbose_name="Заголовок", )
     content = models.TextField(blank=True,

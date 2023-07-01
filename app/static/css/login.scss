@@ -1,5 +1,6 @@
-.login {
+.login { 
     form {
+       
         #id_username {
             width: 500px;
             margin-left: 50px;
@@ -9,5 +10,7 @@
             width: 500px;
             margin-left: 39px;
         }
+
+        margin-bottom: 25%;
     }
 }

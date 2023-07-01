@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Simple Notes app">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{% sass_src 'css/style.scss' %}" rel="stylesheet" type="text/css"/>
     <title>{{title}}</title>
 </head>
@@ -48,26 +49,30 @@
 
 </header>
 <div style="display: flex; margin-top: 20px;">
-    <div class="left_bar">
-        <ul class="left_bar__list">
+    <div class="left_bar" style="padding: 10px;">
+        <div class="left_bar__list">
             {% if cat.path == cat_selected %}
-            <li class="left_bar__list-item__selected">Все</li>
+            <div class="left_bar__list-item__selected">
+                <p>Все</p>
+            </div>
             {% else %}
             <a href="/">
-                <li class="left_bar__list-item">Все</li>
+                <div class="left_bar__list-item">
+                    <p>Все</p>
+                </div>
             </a>
             {% endif %}
 
             {% for cat in cats %}
             {% if cat.path == cat_selected %}
-            <li class="left_bar__list-item__selected">{{cat.title}}</li>
+            <div class="left_bar__list-item__selected"><p>{{cat.title}}</p></div>
             {% else %}
             <a href="/category/{{cat.path}}">
-                <li class="left_bar__list-item">{{cat.title}}</li>
+                <div class="left_bar__list-item"><p>{{cat.title}}</p></div>
             </a>
             {% endif %}
             {% endfor %}
-        </ul>
+        </div>
     </div>
     <div>
         <div class="container">

@@ -186,16 +186,18 @@ body {
 .add-post #id_category, .register #id_category, .login #id_category {
   margin-left: -5px; }
 
-.login form #id_username {
-  width: 500px;
-  margin-left: 50px; }
-
-.login form #id_password {
-  width: 500px;
-  margin-left: 39px; }
+.login form {
+  margin-bottom: 25%; }
+  .login form #id_username {
+    width: 500px;
+    margin-left: 50px; }
+  .login form #id_password {
+    width: 500px;
+    margin-left: 39px; }
 
 .register .form {
-  width: 73.1rem; }
+  width: 73.1rem;
+  margin-bottom: 15%; }
   .register .form #id_username {
     margin-left: 73px;
     width: 500px; }
